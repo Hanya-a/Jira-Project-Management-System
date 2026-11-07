@@ -1,0 +1,15 @@
+/* ==========================================================================
+   LandingPage — composed landing page (hero + features + CTA + footer).
+   Section styling lives in each component's own module; this file only
+   provides the scrollable page shell.
+   ========================================================================== */
+
+.container {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}

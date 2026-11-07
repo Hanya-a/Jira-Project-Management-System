@@ -1,0 +1,34 @@
+export type DefaultColumnType = 'todo' | 'in_progress' | 'in_review' | 'done';
+
+export interface BoardColumn {
+  id: string;
+  projectId: string;
+  title: string;
+  order: number;
+  color?: string;
+}
+
+export interface Board {
+  id: string;
+  projectId: string;
+  name: string;
+  columns: BoardColumn[];
+}
+
+export interface CardFilterCriteria {
+  searchQuery?: string;
+
+  assignedToMe?: boolean;
+  createdByMe?: boolean;
+  sharedWithMe?: boolean;
+  hasComments?: boolean;
+
+  selectedUserIds?: string[];
+  currentUserId?: string;
+
+  type?: string;
+  status?: string;
+  priority?: string;
+  project?: string;
+  label?: string;
+}

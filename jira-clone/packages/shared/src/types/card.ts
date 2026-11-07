@@ -1,0 +1,58 @@
+export type CardPriority = 'lowest' | 'low' | 'medium' | 'high' | 'highest';
+
+export type CardRole = 'reporter' | 'assignee' | 'viewer';
+
+export interface Card {
+  id: string;
+  key: string; // e.g. "PROJ-14"
+  title: string;
+  description?: string;
+  projectId: string;
+  columnId: string;
+  publisherId: string; // creator / reporter
+  assigneeId?: string | null;
+  assigneeIds?: string[]; // for multi-assignee support
+  priority: CardPriority;
+  type?: string;
+  order: number;
+  commentCount: number;
+  labels?: string[];
+  startDate?: string;
+  dueDate?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateCardInput {
+  title: string;
+  projectId: string;
+  projectKey: string;
+  columnId: string;
+  publisherId?: string;
+  assigneeId?: string | null;
+  assigneeIds?: string[];
+  priority?: CardPriority;
+  type?: string;
+  dueDate?: string;
+  description?: string;
+  cardIndex?: number;
+  order?: number;
+}
+
+export interface CardTypeOption {
+  id: string;
+  label: string;
+  color: string;
+}
+
+export interface CreateStatusInput {
+  title: string;
+  projectId: string;
+  color?: string;
+  order?: number;
+}
+
+export interface CreateCardTypeInput {
+  label: string;
+  color?: string;
+}
